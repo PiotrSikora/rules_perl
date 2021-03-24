@@ -12,24 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("//perl:perl.bzl", "perl_test")
+use strict;
+use warnings;
 
-package(default_visibility = ["//visibility:public"])
+use Cache::Memcached::Fast;
 
-perl_test(
-    name = "cache_memcached_fast_import_test",
-    srcs = ["cache_memcached_fast_import_test.t"],
-    env = {
-        "PERL5LIB": "../cache_memcached_fast/lib:../cache_memcached_fast/arch",
-    },
-    deps = ["@cache_memcached_fast//:CacheMemcachedFast"],
-)
-
-perl_test(
-    name = "fcgi_import_test",
-    srcs = ["fcgi_import_test.t"],
-    env = {
-        "PERL5LIB": "../fcgi/lib:../fcgi/arch",
-    },
-    deps = ["@fcgi//:FCGI"],
-)
+1;

@@ -10,9 +10,11 @@ platforms:
     - "..."
     - "-//examples/cpan:IOTty"
     - "-//examples/cpan:IOTtyXS"
+    - "-//examples/cpan_remote:cache_memcached_fast_import_test"
     - "-//examples/cpan_remote:fcgi_import_test"
     - "-//examples/external_module:complex_deps"
     test_targets:
     - "..."
+    - "-//examples/cpan_remote:cache_memcached_fast_import_test"
     - "-//examples/cpan_remote:fcgi_import_test"
     - "-//examples/external_module:complex_deps"
