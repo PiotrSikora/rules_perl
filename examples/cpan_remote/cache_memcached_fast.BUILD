@@ -58,42 +58,31 @@ genrule(
 perl_xs(
     name = "CacheMemcachedFastXS",
     srcs = ["Fast.xs"],
-    defines = [
-        "VERSION=\"0.26\"",
-        "XS_VERSION=\"0.26\"",
-    ],
-    output_loc = "arch/auto/Cache/Memcached/Fast/Fast.so",
-    textual_hdrs = ["ppport.h"],
-    typemaps = ["typemap"],
-    deps = [":libclient"],
-)
-
-cc_library(
-    name = "libclient",
-    srcs = [
+    cc_srcs = [
         "src/array.c",
-        "src/array.h",
         "src/client.c",
         "src/compute_crc32.c",
-        "src/compute_crc32.h",
         "src/connect.c",
-        "src/connect.h",
         "src/dispatch_key.c",
-        "src/dispatch_key.h",
         "src/parse_keyword.c",
-        "src/parse_keyword.h",
         "src/socket_posix.c",
-        "src/socket_posix.h",
-    ],
-    hdrs = [
-        "src/client.h",
     ],
     copts = ["-I."],
     defines = [
         "HAVE_POLL_H",
+        "VERSION=\"0.26\"",
+        "XS_VERSION=\"0.26\"",
     ],
-    includes = [
-        ".",
-        "src",
+    output_loc = "arch/auto/Cache/Memcached/Fast/Fast.so",
+    textual_hdrs = [
+        "ppport.h",
+        "src/array.h",
+        "src/client.h",
+        "src/compute_crc32.h",
+        "src/connect.h",
+        "src/dispatch_key.h",
+        "src/parse_keyword.h",
+        "src/socket_posix.h",
     ],
+    typemaps = ["typemap"],
 )
